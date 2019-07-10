@@ -78,46 +78,38 @@ public class ObstacleCourse {
 		// Do not forget to set the instance variable foundRow and
 		// foundCol in this method when the exit is found.
 		//
-		if (course[row][col] == ' ' && (row == 0 || row == course.length-1
-				|| col == 0 || col == course[0].length-1)) {
+		if (course[row][col] == ' ' && (row == 0 || row == course.length - 1
+				|| col == 0 || col == course[0].length - 1)) {
 			foundRow = row;
-			foundCol=col;
+			foundCol = col;
 			return true;
 		}
-		
-		else if (course[row+1][col]==' ') {
+
+		else if (course[row + 1][col] == ' ') {
 			course[row][col] = '.';
-			return findExit(row+1,col);
-		}
-		else if (course[row-1][col]==' ') {
+			return findExit(row + 1, col);
+		} else if (course[row - 1][col] == ' ') {
 			course[row][col] = '.';
-			return findExit(row-1,col);
-		}
-		else if (course[row][col+1]==' ') {
+			return findExit(row - 1, col);
+		} else if (course[row][col + 1] == ' ') {
 			course[row][col] = '.';
-			return findExit(row,col+1);
-		}
-		else if (course[row][col-1]==' ') {
+			return findExit(row, col + 1);
+		} else if (course[row][col - 1] == ' ') {
 			course[row][col] = '.';
-			return findExit(row,col-1);
-		}
-		else if (course[row+1][col]=='.') {
+			return findExit(row, col - 1);
+		} else if (course[row + 1][col] == '.') {
 			course[row][col] = '+';
-			return findExit(row+1,col);
-		}
-		else if (course[row-1][col]=='.') {
+			return findExit(row + 1, col);
+		} else if (course[row - 1][col] == '.') {
 			course[row][col] = '+';
-			return findExit(row-1,col);
-		}
-		else if (course[row][col+1]=='.') {
+			return findExit(row - 1, col);
+		} else if (course[row][col + 1] == '.') {
 			course[row][col] = '+';
-			return findExit(row,col+1);
-		}
-		else if (course[row][col-1]=='.') {
+			return findExit(row, col + 1);
+		} else if (course[row][col - 1] == '.') {
 			course[row][col] = '+';
-			return findExit(row,col-1);
-		}
-		else
+			return findExit(row, col - 1);
+		} else
 			return false;
 	}
 

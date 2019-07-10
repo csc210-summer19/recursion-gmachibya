@@ -118,59 +118,51 @@ public class LinkedList<E extends Comparable<E>> {
 	public void removeAll(E el) {
 		// This public method requires a call to a private helper method
 		// with first as an argument. It must be recursive, no loop allowed.
-		if (n==0 || (n==1 && first.data.equals(el))) {
-			first = null;
-			n=0;
-			
-		}
-		//else if (first.data.equals(el)))
-		else
-			removeAll(el, first);
-			
-	}
-	
-	private void removeAll(E el, Node ref) {
-		
-		if (ref.equals(null))
+		if (first == null)
 			return;
-		else if (ref.data.equals(el)) {
-			first=first.next;
+
+		if (first.data.equals(el)) {
+			first = first.next;
 			n--;
-			removeAll(el,first);
+			removeAll(el);
+			return;
 		}
-		else if (ref.next.data.equals(el)) {
-			ref.next = ref.next.next;
+		removeAll(el, first, first.next);
+	}
+
+	public void removeAll(E el, Node prev, Node curr) {
+
+		if (curr == null)
+			return;
+
+		if (el.equals(curr.data)) {
+			prev.next = curr.next;
 			n--;
-			removeAll(el,ref);
+			removeAll(el, prev, curr.next);
+			return;
 		}
-		//else
-		//	removeAll(el,ref.next);
+
+		removeAll(el, curr, curr.next);
 	}
 
 	// Duplicate el next to each occurrence of el in this list.
 	public void duplicateAll(E el) {
 		// This public method requires a call to a private helper method
 		// with first as an argument. It must be recursive, no loop allowed.
-		
-		duplicateAll(el,first);
+
+		duplicateAll(el, first);
 	}
-	
+
 	private void duplicateAll(E el, Node ref) {
-		if (ref==null)
+		if (ref == null)
 			return;
-		
+
 		if (ref.data.equals(el)) {
 			Node copy = new Node(el, ref.next);
 			ref.next = copy;
 			n++;
-			duplicateAll(el,ref.next.next);
-		}
-		
-		else
-			duplicateAll(el,ref.next);
-		
-		
-		
+			duplicateAll(el, ref.next.next);
+		} else
+			duplicateAll(el, ref.next);
 	}
-
 }

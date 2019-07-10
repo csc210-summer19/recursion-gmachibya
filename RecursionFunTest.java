@@ -162,12 +162,15 @@ public class RecursionFunTest {
 		intList.addLast(5);
 		intList.addLast(3);
 		intList.addLast(3);
+		intList.addLast(1);
+		intList.addLast(3);
 		intList.addLast(2);
 		intList.addLast(3);
 		intList.removeAll(3);
 
 		assertEquals((Integer) 5, intList.get(0));
-		assertEquals((Integer) 2, intList.get(1));
+		assertEquals((Integer) 1, intList.get(1));
+		assertEquals((Integer) 2, intList.get(2));
 	}
 
 	@Test
