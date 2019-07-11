@@ -130,7 +130,7 @@ public class LinkedList<E extends Comparable<E>> {
 		removeAll(el, first, first.next);
 	}
 
-	public void removeAll(E el, Node prev, Node curr) {
+	private void removeAll(E el, Node prev, Node curr) {
 
 		if (curr == null)
 			return;
