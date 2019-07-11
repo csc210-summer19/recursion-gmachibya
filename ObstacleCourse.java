@@ -72,7 +72,7 @@ public class ObstacleCourse {
 	 * Finds the exit from the 2-D array. This method also must record the row
 	 * and col where the exit was found
 	 */
-	private boolean findExit(int row, int col) {
+	private void findExit(int row, int col) {
 		// TODO: Complete this method
 		//
 		// Do not forget to set the instance variable foundRow and
@@ -82,35 +82,34 @@ public class ObstacleCourse {
 				|| col == 0 || col == course[0].length - 1)) {
 			foundRow = row;
 			foundCol = col;
-			return true;
+			return;
 		}
 
 		else if (course[row + 1][col] == ' ') {
 			course[row][col] = '.';
-			return findExit(row + 1, col);
+			findExit(row + 1, col);
 		} else if (course[row - 1][col] == ' ') {
 			course[row][col] = '.';
-			return findExit(row - 1, col);
+			findExit(row - 1, col);
 		} else if (course[row][col + 1] == ' ') {
 			course[row][col] = '.';
-			return findExit(row, col + 1);
+			findExit(row, col + 1);
 		} else if (course[row][col - 1] == ' ') {
 			course[row][col] = '.';
-			return findExit(row, col - 1);
+			findExit(row, col - 1);
 		} else if (course[row + 1][col] == '.') {
 			course[row][col] = '+';
-			return findExit(row + 1, col);
+			findExit(row + 1, col);
 		} else if (course[row - 1][col] == '.') {
 			course[row][col] = '+';
-			return findExit(row - 1, col);
+			findExit(row - 1, col);
 		} else if (course[row][col + 1] == '.') {
 			course[row][col] = '+';
-			return findExit(row, col + 1);
+			findExit(row, col + 1);
 		} else if (course[row][col - 1] == '.') {
 			course[row][col] = '+';
-			return findExit(row, col - 1);
+			findExit(row, col - 1);
 		} else
-			return false;
+			return;
 	}
-
 }

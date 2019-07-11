@@ -24,7 +24,6 @@ public class RecursionFun {
 			return 1;
 		else
 			return combinations(n - 1, k - 1) + combinations(n - 1, k);
-
 	}
 
 	// Complete recursive method intWithCommas that returns the argument as a
@@ -47,7 +46,6 @@ public class RecursionFun {
 		else
 			return intWithCommas(Integer.parseInt(str.substring(0, len - 3)))
 					+ "," + str.substring(len - 3, len);
-
 	}
 
 	// Write recursive method reverseArray that reverses the array elements in a
@@ -80,7 +78,6 @@ public class RecursionFun {
 			x[index] = x[len - 1];
 			x[len - 1] = front;
 			reverseArray(x, index + 1, len - 1);
-
 		}
 	}
 
@@ -89,9 +86,7 @@ public class RecursionFun {
 	// integers, Use recursion; do not use a loop.
 	// Precondition: a.length > 0
 	public int arrayRange(int[] a) {
-
 		return arrayRange(a, a[0], a[0], a.length - 1);
-
 	}
 
 	public int arrayRange(int[] a, int min, int max, int index) {
@@ -106,11 +101,7 @@ public class RecursionFun {
 	// If not isSorted, return false.
 	public boolean isSorted(int[] nums) {
 		// Need to send down 0 to keep track of the index
-		if (nums.length < 2)
-			return true;
-		else
-			return isSorted(nums, nums.length);
-
+		return isSorted(nums, nums.length);
 	}
 
 	private boolean isSorted(int[] nums, int index) {
@@ -128,7 +119,7 @@ public class RecursionFun {
 		return found(search, strs, 0);
 	}
 
-	public boolean found(String search, String[] strs, int index) {
+	private boolean found(String search, String[] strs, int index) {
 		if (index == strs.length)
 			return false;
 		else if (strs[index].equals(search))

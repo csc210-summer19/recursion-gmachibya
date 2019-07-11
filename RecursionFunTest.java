@@ -301,6 +301,25 @@ public class RecursionFunTest {
 	}
 
 	@Test
+	public void testFindExitWithSmallGrid5() {
+		char[][] grid = { 
+				{ '+', '+', '+', '+', '+' },
+				{ '+', '+', ' ', '+', '+' }, 
+				{ '+', ' ', ' ', ' ', '+' },
+				{ '+', '+', ' ', '+', '+' }, 
+				{ '+', '+', ' ', '+', '+' } };
+		ObstacleCourse top = new ObstacleCourse(3, 2, grid);
+		assertEquals(3, top.getStartRow());
+		assertEquals(2, top.getStartColumn());
+		System.out.println(top.toString());
+		top.findTheExit();
+		assertEquals(4, top.getExitRow());
+		assertEquals(2, top.getExitColumn());
+		System.out.println(top.toString());
+	}
+	
+	
+	@Test
 	public void testFindExitWithSmallGridNoExit() {
 		char[][] grid = { 
 				{ '+', '+', '+', '+', '+' },
